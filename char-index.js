@@ -19,8 +19,8 @@ var str = "scissors and stuff";
 console.log(getAllIndices(str, 's'));
 
 // sort of fake indices all characters, but works very simply
-var arr = "this is not the string you are looking for";
+var str = "this is not the string you are looking for";
 
-for (var i in arr) {
-  console.log(i + ": " + arr[i]);
+for (var i in str) {
+  console.log(i + ": " + str[i]);
 }
