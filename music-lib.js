@@ -30,11 +30,14 @@ var library = {
   // p02: Other Playlist - 1 tracks
 
   printPlaylists: function () {
+    // create var that's the object's (this) playlists
     var playlists = this.playlists;
 
+    // a for...in loop that's after the keys in playlists
+    // key is given a var name - keyName - and printed w template literals
     for (var key in playlists) {
-      var element = playlists[key];
-      console.log(`${element.id}: ${element.name} - ${element.tracks.length} tracks`)
+      var keyName = playlists[key];
+      console.log(`${keyName.id}: ${keyName.name} - ${keyName.tracks.length} tracks`);
     }
   },
 
@@ -47,7 +50,10 @@ var library = {
   printTracks: function () {
     var tracks = this.tracks;
 
-    
+    for (var key in tracks) {
+      var keyName = tracks[key];
+      console.log(`${keyName.id}: ${keyName.name} by ${keyName.artist} (${keyName.album})`);
+    }
   },
 
 
@@ -100,3 +106,4 @@ var library = {
   }
 }
 library.printPlaylists();
+library.printTracks();
