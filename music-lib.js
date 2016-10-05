@@ -11,7 +11,7 @@ var library = {
                    name: "Four Thirty-Three",
                    artist: "John Cage",
                    album: "Woodstock 1952"}
-        },
+          },
   playlists: { p01: { id: "p01",
                       name: "Coding Music",
                       tracks: ["t01", "t02"]
@@ -22,7 +22,6 @@ var library = {
                     }
              },
 
-
   // FUNCTIONS TO IMPLEMENT:
 
   // prints a list of all playlists, in the form:
@@ -30,7 +29,7 @@ var library = {
   // p02: Other Playlist - 1 tracks
 
   printPlaylists: function () {
-    // create var that's the object's (this) playlists
+    // create var that's the object's(this) playlists
     var playlists = this.playlists;
 
     // a for...in loop that's after the keys in playlists
@@ -40,7 +39,6 @@ var library = {
       console.log(`${keyName.id}: ${keyName.name} - ${keyName.tracks.length} tracks`);
     }
   },
-
 
   // prints a list of all tracks, in the form:
   // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -63,9 +61,12 @@ var library = {
   // t02: Model View Controller by James Dempsey (WWDC 2003)
 
   printPlaylist: function (playlistId) {
+    var currentPlaylist = this.playlists[playlistId];
+    var tracks = this.tracks;
+    // needs to the argument when the function is called at the end
+    console.log(`${currentPlaylist.id}: ${currentPlaylist.name} - ${currentPlaylist.tracks.length} tracks`);
 
   },
-
 
   // adds an existing track to an existing playlist
 
@@ -107,3 +108,4 @@ var library = {
 }
 library.printPlaylists();
 library.printTracks();
+library.printPlaylist("p01");
