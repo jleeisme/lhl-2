@@ -62,11 +62,21 @@ var library = {
 
   printPlaylist: function (playlistId) {
     var currentPlaylist = this.playlists[playlistId];
-    var tracks = this.tracks;
-    // needs to the argument when the function is called at the end
+    // needs the argument when the function is called at the end
     console.log(`${currentPlaylist.id}: ${currentPlaylist.name} - ${currentPlaylist.tracks.length} tracks`);
 
+    // follow the same sort of looping logic as before - looping through the currentPlaylist tracks, not all tracks
+    for (var i in currentPlaylist.tracks) {
+      // tracks in the playlist is taken from the currentPlaylist being two taken from the function's argument when called.
+      var tracks = this.tracks[currentPlaylist.tracks[i]]; 
+      console.log(`${tracks.id}: ${tracks.name} by ${tracks.artist} (${tracks.album})`);
+    }
   },
+
+    // for (var key in tracks) {
+    //   var keyName = tracks[key];
+    //   console.log(`${keyName.id}: ${keyName.name} by ${keyName.artist} (${keyName.album})`)
+
 
   // adds an existing track to an existing playlist
 
