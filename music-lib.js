@@ -54,7 +54,6 @@ var library = {
     }
   },
 
-
   // prints a list of tracks for a given playlist, in the form:
   // p01: Coding Music - 2 tracks
   // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -68,22 +67,21 @@ var library = {
     // follow the same sort of looping logic as before - looping through the currentPlaylist tracks, not all tracks
     for (var i in currentPlaylist.tracks) {
       // tracks in the playlist is taken from the currentPlaylist being two taken from the function's argument when called.
+      // var tracks needs to be within the loop ***
       var tracks = this.tracks[currentPlaylist.tracks[i]]; 
       console.log(`${tracks.id}: ${tracks.name} by ${tracks.artist} (${tracks.album})`);
     }
   },
 
-    // for (var key in tracks) {
-    //   var keyName = tracks[key];
-    //   console.log(`${keyName.id}: ${keyName.name} by ${keyName.artist} (${keyName.album})`)
-
-
   // adds an existing track to an existing playlist
 
   addTrackToPlaylist: function (trackId, playlistId) {
-
+    // wouldn't run without the if...hasOwnProperty. Didn't resolve why playlists was undefined before. This works tho
+    if (this.playlists.hasOwnProperty(playlistId)) {
+      this.playlists[playlistId].tracks.push(trackId);
+    }
+    console.log(this.playlists);    
   },
-
 
   // generates a unique id
   // (use this for addTrack and addPlaylist)
@@ -91,7 +89,6 @@ var library = {
   uid: function() {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   },
-
 
   // adds a track to the library
 
@@ -119,3 +116,4 @@ var library = {
 library.printPlaylists();
 library.printTracks();
 library.printPlaylist("p01");
+library.addTrackToPlaylist("t03", "p01");
