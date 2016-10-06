@@ -93,14 +93,22 @@ var library = {
   // adds a track to the library
 
   addTrack: function (name, artist, album) {
-
+    var id = this.uid(); // take the uid and give it to a var for this function
+    // when the function is called at the end, the arguments given are then added to the tracks.
+    this.tracks[id] = { id: id, 
+                  name: name,
+                  artist: artist, 
+                  album: album
+    };
   },
-
 
   // adds a playlist to the library
 
   addPlaylist: function (name) {
-
+    var id = this.uid();
+    this.playlists[id] = { id: id,
+                          name: name
+                        };
   },
 
   // STRETCH:
@@ -113,7 +121,12 @@ var library = {
 
   }
 }
+
 library.printPlaylists();
 library.printTracks();
 library.printPlaylist("p01");
 library.addTrackToPlaylist("t03", "p01");
+library.addTrack("song", "me", "album");
+console.log(library.tracks);
+library.addPlaylist("howdy");
+console.log(library.playlists);
