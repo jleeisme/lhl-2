@@ -108,7 +108,7 @@ var library = {
     var id = this.uid();
     this.playlists[id] = { id: id,
                           name: name
-                        };
+    };
   },
 
   // STRETCH:

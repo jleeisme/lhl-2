@@ -1,12 +1,12 @@
 function luhn(str) {
-    return str.split('').reduceRight(function (prev, curr, idx) {
-        if ((idx + 1) % 2 !== 0) {
-            curr = (curr * 2).toString().split('').reduce(function (p, c) {
-                return Number(p) + Number(c);
-            });
-        }
-        return Number(prev) + Number(curr);
-    }) % 10 === 0;
+  return str.split('').reduceRight(function (prev, curr, idx) {
+    if ((idx + 1) % 2 !== 0) {
+      curr = (curr * 2).toString().split('').reduce(function (p, c) {
+        return Number(p) + Number(c);
+      });
+  }
+    return Number(prev) + Number(curr);
+  }) % 10 === 0;
 }
 
 // also works
